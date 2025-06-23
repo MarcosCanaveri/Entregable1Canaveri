@@ -103,6 +103,8 @@ switch (visitantes) {
         console.log("Selección erronea, intente de nuevo por favor")
 }
 
+const preciocompleto = (preciototal) => preciototal / 100 * 90;
+console.log(preciocompleto());
 
 
 let habitacionessimples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
