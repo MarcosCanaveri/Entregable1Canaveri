@@ -1,120 +1,97 @@
-let apellido = (prompt("Apellido"))
-let nombre = (prompt("Nombre"))
-let edad = (prompt("Edad"))
-let nacionalidad = (prompt("nacionalidad"))
-let documento = (prompt("Número de documento"))
-//let visitantes = (prompt("Cantidad de visitantes"))
-console.log("Apellido: ", apellido)
-console.log("Nombre: ", nombre)
-console.log("Edad: ", edad)
-console.log("Nacionalidad: ", nacionalidad)
-console.log("Documento: ", documento)
 
-let visitantes = parseInt(prompt("Cantidad de visitantes 1, 2, 3, 4, 5, 6"))
-let dias = (prompt("Cantidad de dias"))
+//armar carrito
+const habitaciones = [
+    {
+        id: 1,
+        nombre: "Simple",
+        precio: 100000
+    },
 
+    {
+        id: 2,
+        nombre: "Doble",
+        precio: 180000
+    },
 
-switch (visitantes) {
-    case 1:
-        preciopordia = 100000
-        preciototal = preciopordia * dias
-        console.log("Habitación simple")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    case 2:
-        preciopordia = 180000
-        preciototal = preciopordia * dias
-        console.log("habitación doble")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    case 3:
-        preciopordia = 260000
-        preciototal = preciopordia * dias
-        console.log("Habitación triple")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    case 4:
-        preciopordia = 340000
-        preciototal = preciopordia * dias
-        console.log("habitación cuadruple")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    case 5:
-        preciopordia = 420000
-        preciototal = preciopordia * dias
-        console.log("habitación quintuple")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    case 6:
-        preciopordia = 500000
-        preciototal = preciopordia * dias
-        console.log("Habitación sextuple")
-        console.log("El precio total es de $", preciototal)
-        if (dias >= 5 && dias <= 9) {
-            let preciofinal = preciototal / 100 * 90
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        else (dias >= 10); {
-            let preciofinal = preciototal / 100 * 80
-            console.log("El precio total con descuento es de $", preciofinal)
-        }
-        break
-    default:
-        console.log("Selección erronea, intente de nuevo por favor")
+    {
+        id: 3,
+        nombre: "Triple",
+        precio: 260000
+    },
+
+    {
+        id: 4,
+        nombre: "Cuadruple",
+        precio: 340000
+    },
+
+    {
+        id: 5,
+        nombre: "Quintuple",
+        precio: 420000
+    },
+
+    {
+        id: 6,
+        nombre: "Sextuple",
+        precio: 500000
+    },
+]
+
+const cartHabitaciones = []
+let reservas = document.getElementById("Reservas")
+
+function renderHabitaciones(habitacionesArray) {
+    habitacionesArray.forEach(habitacion => {
+        const card = document.createElement("div")
+        card.innerHTML = `<h3>${habitacion.nombre}</h3>
+                          <p>${habitacion.precio}</p>
+                          <button class="habitacionReservar" id="${habitacion.id}">Reservar</button>`
+        habitacionesContainer.appendChild(card)                  
+    });
+    agregarAlCarrito(habitaciones)
 }
 
-function 
+renderHabitaciones(habitaciones)
 
-let habitacionessimples = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let habitacionsdobles = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-let habitacionestriples = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-let habitacionescuadruples = [31, 32, 33, 34, 35, 36, 37, 38, 39, 40];
-let habitacionesquintuples = [41, 42, 43, 44, 45, 46, 47, 48, 49, 50];
-let habitacionessextuples = [51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+function agregarAlCarrito (habitacionesArray) {
+    const addButton = document.querySelectorAll(".habitacionAgregar")
+    addButton.forEach(Button => {
+        Button.onclick = (e) => {
+            const habitacionID = e.currentTarget.id
+            const selectedHabitacion = habitacionesArray.find(habitacion => habitacion.id == habitacionID)
+            cartHabitaciones.push(selectedHabitacion)
+            console.log(cartHabitaciones)
 
-console.log(habitacionessimples)
-console.log(habitacionesdobles)
-console.log(habitacionestriples)
-console.log(habitacionescuadruples)
-console.log(habitacionesquintuples)
-console.log(habitacionessextuples)
+            localStorage.setItem("cartHabitaciones", JSON.stringify(cartHabitaciones))
+        }
+    })
+
+}
+
+let restar = document.getElementById("minus-button")
+let sumar = document.getElementById("plus-button")
+let counter = document.getElementById("counter")
+let contador = 0
+
+sumar.onclick = () => {
+    contador++
+    counter.innerHTML = contador
+    restar.disabled = false
+}
+
+restar.onclick = () => {
+    if(contador === 0) {
+        restar.disabled = true
+    } else{
+    contador--
+    counter.innerHTML = contador
+    }
+}
+
+let input = document.getElementById("search")
+const usuarios = [apellido, nombre, documento, mail]
+Input.onchange = () => {
+    const usuario = usuario.find(usuarios === input.value)
+}
+

@@ -5,14 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JS -->
     <script defer src="JS/main.js"></script>
+
+        <!--hoja de estilos-->
+    <link rel="stylesheet" href="./Entregable1Canaveri/css/style.css">
+
     <title>Document</title>
 </head>
 <body>
+    <h1 id="h1">Hotel Canaveri</h1>
     <main>
-        <section>
-            <h1>Hotel Canaveri</h1>
-            <p>Reservas de un hotel con diferentes tipos de habitaciones y descuentos a partir del quinto día</p>
+        <p>Reservas de un hotel con diferentes tipos de habitaciones</p>
+        <section id ="habitacionesContainer">            
+            
         </section>
     </main>
+    <h2><a href="./carrito.html">Ir al carrito</a></h2>
+
+    <form id="form"> 
+
+        <br>
+        <label for="nombre">Ingrese su nombre</label>
+        <input id="nombre" type="text" required placeholder="Juan">
+
+        <br>
+        <label for="apellido">Ingrese su apellido</label>
+        <input id="apellido" type="text" required placeholder="Perez">
+
+        <br>
+        <label for="dni">Ingrese su numero de documento</label>
+        <input id="dni" type="number" required placeholder="123456">
+
+        <br>
+        <label for="e-mail">Ingrese su correo electrónico</label>
+        <input id="e-mail" type="text" required placeholder="juanperez@gmail.com">
+
+        <br>
+        <input type="submit" value="enviar">
+        <input type="reset" value="limpiar">
+
+        <br>
+        <input type="number" id="precio">
+
+        <select id="cuotas">
+            <option value="6">6 cuotas</option>
+            <option value="12">12 cuotas</option>
+        </select>
+        <button type="button" id="calcular">calcular</button>
+    </form>
+
 </body>
 </html>
