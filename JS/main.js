@@ -38,32 +38,32 @@ const habitaciones = [
     },
 ]
 
-const cartHabitaciones = []
-let reservas = document.getElementById("Reservas")
+const cartRooms = []
+let roomsContainer = document.getElementById("rooms-Container")
 
-function renderHabitaciones(habitacionesArray) {
-    habitacionesArray.forEach(habitacion => {
+function renderHabitaciones(roomsArray) {
+    roomsArray.forEach(habitacion => {
         const card = document.createElement("div")
         card.innerHTML = `<h3>${habitacion.nombre}</h3>
                           <p>${habitacion.precio}</p>
                           <button class="habitacionReservar" id="${habitacion.id}">Reservar</button>`
-        habitacionesContainer.appendChild(card)                  
-    });
+        roomsContainer.appendChild(card)                  
+    })
     agregarAlCarrito(habitaciones)
 }
 
 renderHabitaciones(habitaciones)
 
-function agregarAlCarrito (habitacionesArray) {
-    const addButton = document.querySelectorAll(".habitacionAgregar")
+function agregarAlCarrito (roomsArray) {
+    const addButton = document.querySelectorAll(".habitacionReservar")
     addButton.forEach(Button => {
         Button.onclick = (e) => {
-            const habitacionID = e.currentTarget.id
-            const selectedHabitacion = habitacionesArray.find(habitacion => habitacion.id == habitacionID)
-            cartHabitaciones.push(selectedHabitacion)
-            console.log(cartHabitaciones)
+            const roomId = e.currentTarget.id
+            const selectedRoom = roomsArray.find(habitacion => habitacion.id == roomId)
+            cartRooms.push(selectedRoom)
+            console.log(cartRooms)
 
-            localStorage.setItem("cartHabitaciones", JSON.stringify(cartHabitaciones))
+            localStorage.setItem("cartRooms", JSON.stringify(cartRooms))
         }
     })
 

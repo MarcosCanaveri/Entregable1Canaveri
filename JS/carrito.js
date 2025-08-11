@@ -1,8 +1,8 @@
 let cartContainer = document.getElementById("cart-section")
-let cartStorage = localStorage.getItem("cartHabitaciones")
+let cartStorage = localStorage.getItem("cartRooms") 
 cartStorage = JSON.parse(cartStorage)
 
-function renderHabitaciones(cartItems) {
+function renderCarrito(cartItems) {
     cartItems.forEach(habitacion => {
         const card = document.createElement("div")
         card.innerHTML = `<h3>${habitacion.nombre}</h3>
@@ -10,4 +10,4 @@ function renderHabitaciones(cartItems) {
         cartContainer.appendChild(card)
     })
 }
-renderHabitaciones(cartStorage)
+renderCarrito(cartStorage)
