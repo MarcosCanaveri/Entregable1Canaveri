@@ -4,7 +4,7 @@ const habitaciones = [
     {
         id: 1,
         nombre: "Simple",
-        precio: 100000
+        precio: 100000,
     },
 
     {
@@ -69,6 +69,7 @@ function agregarAlCarrito (roomsArray) {
 
 }
 
+
 let restar = document.getElementById("minus-button")
 let sumar = document.getElementById("plus-button")
 let counter = document.getElementById("counter")
@@ -89,9 +90,38 @@ restar.onclick = () => {
     }
 }
 
-let input = document.getElementById("search")
-const usuarios = [apellido, nombre, documento, mail]
-Input.onchange = () => {
-    const usuario = usuario.find(usuarios === input.value)
-}
+const reservaForm = document.getElementById('reservaForm');
+
+reservaForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita que el formulario se envíe por defecto
+
+  // Obtener los valores de los campos
+  const nombre = document.getElementById('nombre').value;
+  const apellido = document.getElementById('apellido').value;
+  const fechaLlegada = document.getElementById('fechaLlegada').value;
+  const fechaSalida = document.getElementById('fechaSalida').value;
+  const habitacion = document.getElementById('habitacion').value;
+
+  // Validar los datos (ejemplo básico)
+  if (nombre === "" || apellido === "" || fechaLlegada === "" || fechaSalida === "") {
+    alert("Por favor, complete todos los campos.");
+    return;
+  }
+
+  // Crear objeto con los datos de la reserva
+  const reserva = {
+    nombre: nombre,
+    apellido: apellido,
+    fechaLlegada: fechaLlegada,
+    fechaSalida: fechaSalida,
+    habitacion: habitacion
+  };
+
+  // Enviar los datos (aquí se podría implementar una llamada a un servidor)
+  console.log("Reserva creada:", reserva);
+  alert("Reserva realizada con éxito!");
+
+  // Limpiar el formulario (opcional)
+  reservaForm.reset();
+});
 
