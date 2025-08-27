@@ -69,28 +69,7 @@ function agregarAlCarrito (roomsArray) {
 
 }
 
-
-let restar = document.getElementById("minus-button")
-let sumar = document.getElementById("plus-button")
-let counter = document.getElementById("counter")
-let contador = 0
-
-sumar.onclick = () => {
-    contador++
-    counter.innerHTML = contador
-    restar.disabled = false
-}
-
-restar.onclick = () => {
-    if(contador === 0) {
-        restar.disabled = true
-    } else{
-    contador--
-    counter.innerHTML = contador
-    }
-}
-
-const reservaForm = document.getElementById('reservaForm');
+const reservaForm = document.getElementById('usuario');
 
 reservaForm.addEventListener('submit', function(event) {
   event.preventDefault(); // Evita que el formulario se envíe por defecto
@@ -103,7 +82,7 @@ reservaForm.addEventListener('submit', function(event) {
   const habitacion = document.getElementById('habitacion').value;
 
   // Validar los datos (ejemplo básico)
-  if (nombre === "" || apellido === "" || fechaLlegada === "" || fechaSalida === "") {
+  if (nombre === '' || apellido === '' || fechaLlegada === '' || fechaSalida === '') {
     alert("Por favor, complete todos los campos.");
     return;
   }
