@@ -1,0 +1,49 @@
+/*variables CSS*/
+:root {
+  --main-backgroundcolor: #e1e3db;
+  --main-color-secondary: #70160e;
+  --main-text-color: #161917;
+  --main-text-light: #b9030f;
+  --main-extra-color: #9e0004;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0;
+    text-align: center;
+}
+
+header {
+    background-color: var(--main-backgroundcolor);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+.room {
+    background: var(--main-backgroundcolor);
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: var(--main-text-light);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:disabled{
+    background-color: var(--main-extra-color);
+    cursor: not-allowed;
+}
