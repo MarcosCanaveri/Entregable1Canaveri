@@ -1,4 +1,3 @@
-
 //armar carrito
 const habitaciones = [
     {
